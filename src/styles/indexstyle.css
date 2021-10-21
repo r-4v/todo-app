@@ -1,0 +1,9 @@
+body {
+  background: url(../assets/todo-background.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+}
