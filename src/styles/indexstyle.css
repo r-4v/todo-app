@@ -12,4 +12,5 @@ body {
   padding: 0px;
   height: 100vh;
   display:flex;
+  flex-direction: row;
 }

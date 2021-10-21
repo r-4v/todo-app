@@ -1,10 +1,11 @@
 import { sideBar } from "./side-bar";
+import { taskarea } from "./task-area";
 const startPage = (function(){
     let body = document.body;
     //side bar element
     body.appendChild(sideBar.sideBarDiv);
-
-    //right side create task button element 
+    body.append(taskarea.taskAreaElement);
+   
     return {body};
 })();
 export {startPage};
