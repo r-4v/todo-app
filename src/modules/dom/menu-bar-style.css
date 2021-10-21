@@ -1,0 +1,5 @@
+.sub-menu > div:hover{
+    color:#76ff03;
+    cursor:pointer;
+    transition : color 0.25s ease-in-out;
+}
