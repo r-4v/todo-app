@@ -15,10 +15,11 @@ const taskList = (function () {
   let addEntryDiv = document.createElement("div");
   addEntryDiv.setAttribute(
     "style",
-    `height:40px;padding:10px;background-color:#414141;
-    width:40px;position:relative;left:375px;
-    top:620px;border-radius:20px;border:none;`
+    `height:40px;padding:10px;background-color:#76ff03;display:flex;
+    justify-content:center;align-items:center;width:40px;position:relative;left:375px;
+    top:620px;border-radius:20px;border:none;color:black;font-size:30px;font-weight:bold;cursor:pointer;`
   );
+  addEntryDiv.innerText = "+";
 
   taskListDiv.append(nameEntryDiv);
   taskListDiv.appendChild(addEntryDiv);
