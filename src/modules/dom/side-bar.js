@@ -10,7 +10,7 @@ const sideBar = (function () {
   appNameDiv.setAttribute(
     "style",
     `background-color:#161616;width:250px;height:150px;
-    color:white;font-size:50px;padding:20px;font-weight:300;
+    color:white;font-size:40px;padding:20px;font-weight:300;
     display:flex;align-items:center;justify-content:center;`
   );
   sideBarDiv.appendChild(appNameDiv);

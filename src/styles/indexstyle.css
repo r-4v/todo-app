@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 *{
     box-sizing: border-box;
+    font-family: 'Noto sans',sans-serif;
 }
 body {
   background: url(../assets/todo-background3.webp);
@@ -13,4 +14,13 @@ body {
   height: 100vh;
   display:flex;
   flex-direction: row;
+}
+button{
+  cursor:pointer;
+}
+input{
+  cursor:pointer;
+}
+select{
+  cursor:pointer;
 }

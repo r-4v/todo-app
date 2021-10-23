@@ -28,9 +28,28 @@
 .modal::-webkit-scrollbar{
     display:none;
 }
+#form-wrapper{
+    display:flex;
+    flex-direction: column;
+}
+#add-task{
+    display:flex;
+    color:#76ff03;
+    font-size: 18px;
+    font-weight:100;
+    justify-content: center;
+    align-items: center;
+    border:1px solid #76ff03;
+    padding:10px;
+    width:130px;
+    margin:auto ;
+    border-radius:5px;
+    cursor:pointer;
+    background:transparent;
+}
 #form-div{
     display:flex;
-    margin-bottom: 40px;
+    margin-bottom:20px;
 }
 #task-input{
     display:flex;
@@ -48,6 +67,7 @@
     border-radius: 5px;
     margin:10px;
     color:#76ff03;
+    cursor: pointer;
     
     
     border:1px solid #76ff03;
@@ -91,6 +111,7 @@
         color:#76ff03;
         border:1px solid #76ff03;
         border-radius: 5px;
+        cursor:pointer;
     }
     option{
         background-color:#161616;

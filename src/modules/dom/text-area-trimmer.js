@@ -8,14 +8,15 @@ function textAreaTrim(selectedDiv){
   function onKeyPress(e){
     if((e.keyCode === 13)){
       e.preventDefault();
-      console.log("hemlo");
+     // console.log("hemlo");
     }
   }
   function OnInput(e) {
     if((e.target.value[e.target.value.length-1]) !== 10){
     this.style.height = "auto";
     this.style.height = (this.scrollHeight) + "px";
-    console.log(e.target.value);
-    console.log(e.target.value[e.target.value.length-1]);}
+   // console.log(e.target.value);
+  //  console.log(e.target.value[e.target.value.length-1]);
+  }
   }}
   export {textAreaTrim};

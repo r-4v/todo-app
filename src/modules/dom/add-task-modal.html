@@ -1,32 +1,36 @@
-<div class="overlay">
-  <div class="modal">
-    <div id="form-div">
-      <div id="task-input">
-        <textarea
-          name="task-name-2"
-          id="task-name-2"
-          class="task-name-2"
-          autofocus
-          placeholder="I want to...."
-        ></textarea>
-        <div class="date-time">
-          <label for="date-picker">Due Date:</label>
-          <input type="date" id="date-picker" />
-        </div>
-        <div class="notes">
+<div class="overlay"></div>
+<div class="modal">
+  <form id = "task-form">
+    <div class="form-wrapper">
+      <div id="form-div">
+        <div id="task-input">
           <textarea
-            name="notes"
-            id="notes"
-            class="notes task-name-2"
-            placeholder="Place your notes here...."
+            name="task-name-2"
+            id="task-name-2"
+            class="task-name-2"
+            autofocus
+            placeholder="I want to...."
           ></textarea>
+          <div class="date-time">
+            <label for="date-picker">Due Date:</label>
+            <input type="date" name="due-date" id="date-picker" />
+          </div>
+          <div class="notes">
+            <textarea
+              name="notes"
+              id="notes"
+              class="notes task-name-2"
+              placeholder="Place your notes here...."
+            ></textarea>
+          </div>
+        </div>
+        <div id="select-project">
+          <select name="project-name" id="projects">
+            <option value="select-project">Select Project</option>
+          </select>
         </div>
       </div>
-      <div id="select-project">
-        <select name="projects" id="projects">
-          <option value="select-project">Select Project</option>
-        </select>
-      </div>
+      <button type="submit" id="add-task">Add Task</button>
     </div>
-  </div>
+  </form>
 </div>

@@ -38,7 +38,8 @@ border-radius: 10px;
 
 #select-project-info-div select{
     padding:10px;
-    margin:50px;
+    margin:30px;
+    margin-left:50px;
     width:80%;
     background:transparent;
     color:whitesmoke;
