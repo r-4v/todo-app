@@ -25,15 +25,15 @@ border-radius: 10px;
     padding:10px;
     border-radius: 5px;
     margin:10px;
-    color:#76ff03;
-    border:1px solid #76ff03;
+    color:white;
+    border:1px solid whitesmoke;
 }
 .date-time2-info-div{
-    color:#76ff03;
+    color:white;
     margin:10px;
     margin-top:40px;
 }
-.date-time2-info-div input::-webkit-calendar-picker-indicator { background-color:#76ff03; }
+.date-time2-info-div input::-webkit-calendar-picker-indicator { background-color:white; }
 
 
 #select-project-info-div select{
@@ -41,13 +41,13 @@ border-radius: 10px;
     margin:50px;
     width:80%;
     background:transparent;
-    color:#76ff03;
-    border:1px solid #76ff03;
+    color:whitesmoke;
+    border:1px solid whitesmoke;
     border-radius: 5px;
 }
 select-project-info-div option{
     background-color:#161616;
-    color:#76ff03;
+    color:whitesmoke;
 }
 select-project-info-div select:focus{
     outline: none;
@@ -55,7 +55,7 @@ select-project-info-div select:focus{
 .task-info-div-wrapper{
     display:flex;
     flex-direction: column;
-    row-gap:30px;
+    row-gap :20px;
     
 }
 .button-wrapper{
@@ -78,4 +78,35 @@ select-project-info-div select:focus{
 }
 #task-info-div::-webkit-scrollbar,.scroll::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
+}
+.priority{
+    width:100%;
+    display:flex;
+    row-gap: 20px;
+    color:white;
+    font-weight: bold;
+    align-items: center;
+    flex-direction: column;
+}
+.priority button{
+    padding:8px 25px;
+    width:110px;
+    border-radius:5px;
+    background:transparent;
+}
+#high{
+ border:1px solid#00e5ff;
+ color:#00e5ff;   
+}
+#medium{
+    border:1px solid #7e57c2;
+    color:#7e57c2;
+}
+#low{
+    border:1px solid #f44336;
+    color:#f44336;
+}
+.priority-inner-wrap{
+    display:flex;
+    column-gap: 15px;
 }
