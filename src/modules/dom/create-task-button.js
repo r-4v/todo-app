@@ -29,7 +29,9 @@ const createTask = (function(){
         let newProjectOption = document.createElement("option");
         newProjectOption.setAttribute('value',`${projectName}`);
         newProjectOption.innerText = projectName;
+        newProjectOption.setAttribute('value',`${projectName}`);
         selectInput.appendChild(newProjectOption);
+        
     }
     /*overlayElement =  addTaskfn();
     console.log(overlayElement);*/

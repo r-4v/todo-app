@@ -50,6 +50,8 @@ const taskInfo = (function(){
         let dateField = taskDetailArea.querySelector('#date-picker');
         let priority = taskDetailArea.querySelector('#priority-select');
         let notes = taskDetailArea.querySelector("#notes");
+        let selectedProject = taskDetailArea.querySelector("#projects-info-div");
+        console.log(`Selected project is ${selectedProject.value}`);
         console.log(`taskNamebeforechange in handlechange is ${taskNameBeforeChange}`);
        let currentTask =  todoList.filter((todo)=> todo.taskName === taskNameBeforeChange)[0];
         console.log(currentTask);
@@ -67,9 +69,18 @@ const taskInfo = (function(){
         console.log(todoList);
      
 }
-        
+function taskInfoaddSelectOptions(projectName){
+    let selectInput = document.querySelector("#projects-info-div");
+    let newProjectOption = document.createElement("option");
+    newProjectOption.setAttribute('value',`${projectName}`);
+    newProjectOption.innerText = projectName;
+    newProjectOption.setAttribute('value',`${projectName}`);
+    selectInput.appendChild(newProjectOption);
+    
+}
     
     function populateTaskInfoDiv(task){ 
+        taskInfoaddSelectOptions(task.projectName);
        let taskNameTextArea =  taskDetailArea.querySelector("#task-name-info-div");
        taskNameBeforeChange = task.taskName;
        console.log(`taskNameBeforeChange = ${taskNameBeforeChange}`);
@@ -82,6 +93,10 @@ const taskInfo = (function(){
         notes.value = task.notes;
         let priority = taskDetailArea.querySelector('#priority-select');
         priority.value = task.priority;
+
+        let selectedProject =  taskDetailArea.querySelector('#projects-info-div');
+        selectedProject.value = task.projectName;
+        console.log(selectedProject);
         console.log("fired update");
         
         
