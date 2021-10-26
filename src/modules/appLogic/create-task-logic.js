@@ -1,4 +1,6 @@
 import { taskList } from "../dom/task-list";
+import { todoFactory } from "./todo-factory";
+let todoList = [];
 const createTaskLogic = (function(){
     function delegateTaskInfo(e) {
         e.preventDefault();
@@ -14,18 +16,16 @@ const createTaskLogic = (function(){
           this.reset();
           addBookToLibrary(author, bookName, pages, hasRead);
         }*/
-       let task = {taskName,dueDate,notes,projectName};
+       let task = todoFactory(taskName,dueDate,notes,projectName);
         console.log(task);
+        console.log(typeof task.dueDate);
         this.reset();
-        appendTask(task);
+        todoList.push(task);
+        taskList.refreshTaskList();
+        
 
       }
-      function appendTask(task){
-        let taskListItem = document.createElement('div');
-          taskListItem.innerText = task.taskName;
-          taskListItem.setAttribute('style',`color:white;font-weight:bold;font-size:18px;`);
-          taskList.taskListDiv.insertBefore(taskListItem,taskList.nameEntryDiv);
-      };
+      
     return{delegateTaskInfo};
 })();
-export {createTaskLogic};
+export {createTaskLogic,todoList};

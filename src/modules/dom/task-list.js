@@ -1,3 +1,5 @@
+import { taskInfo } from "./task-info";
+import { todoList } from "../appLogic/create-task-logic";
 const taskList = (function () {
   let taskListWrapper = document.createElement('div');
   taskListWrapper.setAttribute('style',`margin-top:120px;margin-left:40px;`);
@@ -33,6 +35,32 @@ const taskList = (function () {
   nameEntryWrapper.appendChild(nameEntryDiv);
   nameEntryWrapper.appendChild(addEntryDiv);
   taskListWrapper.append(nameEntryWrapper);
-  return { taskListWrapper,taskListDiv ,nameEntryDiv,addEntryDiv};
+  function refreshTaskList(){
+    console.log("refreshing list");
+    console.log(todoList);
+    taskList.taskListDiv.innerHTML="";
+    todoList.map((todo)=>{
+      //console.log("henlo");
+      let taskListItem = document.createElement('div');
+      taskListItem.innerText = todo.taskName;
+      taskListItem.setAttribute('style',`color:white;font-weight:bold;font-size:18px;margin:20px;cursor:pointer;`);
+      taskList.taskListDiv.appendChild(taskListItem);
+      taskListItem.addEventListener('click',updateTaskInfo);
+    })
+  }
+  /*function appendTask(task){
+    
+  };*/
+  function updateTaskInfo(listItemEvent){
+    taskInfo.displayTaskInfoDiv();
+    let taskToDisplay = listItemEvent.target.innerText;
+    let task = todoList.filter((todo)=> todo.taskName === taskToDisplay)[0];
+    console.log(task);
+    console.log(todoList);
+    taskInfo.populateTaskInfoDiv(task,listItemEvent)
+    
+  }
+ 
+  return { taskListWrapper,taskListDiv ,nameEntryDiv,addEntryDiv,refreshTaskList};
 })();
 export { taskList };
