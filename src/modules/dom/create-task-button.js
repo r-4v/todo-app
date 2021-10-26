@@ -24,6 +24,12 @@ const createTask = (function(){
         form.addEventListener("submit",createTaskLogic.delegateTaskInfo);
 
     }
+   /* function addSelectOptions(projectName){
+        let selectInput = document.querySelector("#projects");
+        let newProjectOption = document.createElement("option");
+        newProjectOption.setAttribute('value',`${projectName}`);
+        newProjectOption.innerText = projectName;
+    }*/
     /*overlayElement =  addTaskfn();
     console.log(overlayElement);*/
    overlayElement.addEventListener('click',closeOverlay);
@@ -31,14 +37,14 @@ const createTask = (function(){
     
   function closeOverlay(e){
         let overlayElement =  document.querySelector(".overlay");
-        console.log("ok");
-        console.log(overlayElement);
+        //console.log("ok");
+        //console.log(overlayElement);
         overlayElement.setAttribute('style',`display:none;`);
         let modal = document.querySelector(".modal");
         modal.setAttribute('style', `display:none;`);
 
     }
-    return{createTaskBtn};
+    return{createTaskBtn,closeOverlay};
 })();
 export{createTask};
 

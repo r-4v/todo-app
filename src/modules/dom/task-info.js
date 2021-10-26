@@ -1,9 +1,10 @@
+
 import taskDetails from './task-info.html';
 import './task-info.css';
-import { taskarea } from './task-area';
 import { textAreaTrim } from './text-area-trimmer';
 import { todoList } from '../appLogic/create-task-logic';
 import { taskList } from './task-list';
+
 const taskInfo = (function(){
     let taskNameBeforeChange;
     let taskInfoDiv = document.createElement('div');
@@ -53,7 +54,7 @@ const taskInfo = (function(){
        let currentTask =  todoList.filter((todo)=> todo.taskName === taskNameBeforeChange)[0];
         console.log(currentTask);
          //search for taskListElement with taskNameBeforeChange
-         Array.from(taskList.taskListDiv.children).filter((child)=> child.innerText === taskNameBeforeChange)[0].innerText = taskNameTextArea.value;
+        Array.from(taskList.taskListDiv.children).filter((child)=> child.innerText === taskNameBeforeChange)[0].innerText = taskNameTextArea.value;
          
         currentTask.taskName = taskNameTextArea.value;
        // taskList.taskListDiv.firstChild.innerText = currentTask.taskName;
@@ -125,5 +126,6 @@ const taskInfo = (function(){
 
 
     return {taskInfoDiv,displayTaskInfoDiv,populateTaskInfoDiv};
-})()
+})();
+
 export {taskInfo};

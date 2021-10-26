@@ -1,3 +1,4 @@
+import { createTask } from "../dom/create-task-button";
 import { taskList } from "../dom/task-list";
 import { todoFactory } from "./todo-factory";
 let todoList = [];
@@ -9,6 +10,7 @@ const createTaskLogic = (function(){
         let dueDate = taskFormData.get("due-date");
         let notes = taskFormData.get("notes");
         let projectName = taskFormData.get("project-name");
+
         //let bookExists = checkIfBookExists(bookName);
         /*if (!bookExists) {
           modal.setAttribute("style", "display:none");
@@ -20,6 +22,7 @@ const createTaskLogic = (function(){
         console.log(task);
         console.log(typeof task.dueDate);
         this.reset();
+        createTask.closeOverlay();
         todoList.push(task);
         taskList.refreshTaskList();
         

@@ -1,6 +1,6 @@
 import { sub } from "date-fns";
 import './menu-bar-style.css';
-import { projectModal } from "./add-project";
+import { projectModal } from "./add-project-modal.js";
 const menuBar = (function(){
     let menuDiv = document.createElement('div');
     menuDiv.setAttribute('style',"flex:1; color:white;");
@@ -22,6 +22,7 @@ const menuBar = (function(){
     projectsDivWrapper.appendChild(addProjectBtn);
     addProjectBtn.setAttribute('style',`width:30px;background-color:transparent;color:white;font-size:25px;font-weight:bold;padding:0px;border:none;margin-left:auto;`);
     addProjectBtn.innerText = '+';
+    addProjectBtn.addEventListener('click',projectModal.displayProjectModal);
     //addProjectBtn.addEventListener('click',projectModal.openProjectModal);
     projectsDivWrapper.setAttribute('style','display:flex;column-gap:20px;align-items:center;');
 

@@ -15,26 +15,27 @@ const taskList = (function () {
   nameEntryWrapper.setAttribute('style',`display:flex;column-gap:10px;width:440px;background-color:#161616;
   border-radius:0px 0px 25px 25px;`)
 
-  let nameEntryDiv = document.createElement("input");
+  let nameEntryDiv = document.createElement("div");
   nameEntryDiv.setAttribute(
     "style",
-    `height:40px;padding:10px;background-color:#414141;
-    width:355px;border-radius:50px;border:none;margin-left:10px`
+    `height:60px;padding:10px;text-align:center;font-size:30px;align-items:center;
+    width:440px;border-radius:50px;border:none;margin-left:10px;font-weight:bold;color:white;`
   );
+  nameEntryDiv.innerText = "Task Board";
 //position:relative;left:10px;top:660px;
 //position:relative;left:375px;top:620px;
 
-  let addEntryDiv = document.createElement("div");
+  /*let addEntryDiv = document.createElement("div");
   addEntryDiv.setAttribute(
     "style",
     `height:40px;padding:10px;background-color:#76ff03;display:flex;
     justify-content:center;align-items:center;width:40px;border-radius:20px;border:none;color:black;font-size:30px;font-weight:bold;cursor:pointer;`
-  );
-  addEntryDiv.innerText = "+";
+  );*/
+  //addEntryDiv.innerText = "+";
   taskListWrapper.appendChild(taskListDiv);
   nameEntryWrapper.appendChild(nameEntryDiv);
-  nameEntryWrapper.appendChild(addEntryDiv);
-  taskListWrapper.append(nameEntryWrapper);
+  //nameEntryWrapper.appendChild(addEntryDiv);
+  taskListWrapper.appendChild(nameEntryWrapper);
   function refreshTaskList(){
     console.log("refreshing list");
     console.log(todoList);
@@ -61,6 +62,6 @@ const taskList = (function () {
     
   }
  
-  return { taskListWrapper,taskListDiv ,nameEntryDiv,addEntryDiv,refreshTaskList};
+  return { taskListWrapper,taskListDiv ,nameEntryDiv,refreshTaskList};
 })();
-export { taskList };
+export {taskList};
