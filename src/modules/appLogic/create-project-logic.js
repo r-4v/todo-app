@@ -10,7 +10,7 @@ const createProjectLogic = (function(){
         let projectName =  projectFormData.get('project-name');
         let project = projectFactory(projectName);
         projectList.push(project);
-        //createTask.addSelectOptions(project.projectName);
+        createTask.addSelectOptions(project.projectName);
         console.log(project);
         console.log(projectList);
         this.reset();

@@ -24,12 +24,13 @@ const createTask = (function(){
         form.addEventListener("submit",createTaskLogic.delegateTaskInfo);
 
     }
-   /* function addSelectOptions(projectName){
+    function addSelectOptions(projectName){
         let selectInput = document.querySelector("#projects");
         let newProjectOption = document.createElement("option");
         newProjectOption.setAttribute('value',`${projectName}`);
         newProjectOption.innerText = projectName;
-    }*/
+        selectInput.appendChild(newProjectOption);
+    }
     /*overlayElement =  addTaskfn();
     console.log(overlayElement);*/
    overlayElement.addEventListener('click',closeOverlay);
@@ -44,7 +45,7 @@ const createTask = (function(){
         modal.setAttribute('style', `display:none;`);
 
     }
-    return{createTaskBtn,closeOverlay};
+    return{createTaskBtn,closeOverlay,addSelectOptions};
 })();
 export{createTask};
 
