@@ -22,10 +22,18 @@ const createTaskLogic = (function(){
         console.log(task);
         console.log(typeof task.dueDate);
         this.reset();
+        if (!checkIfTaskExists(task.taskName))
+        {this.reset();
         createTask.closeOverlay();
         todoList.push(task);
-        taskList.refreshTaskList();
+        taskList.refreshTaskList();}
         
+
+      }
+      function checkIfTaskExists(taskName){
+        
+        let filteredList =todoList.filter((todo)=> todo.taskName === taskName);
+        return filteredList.length !== 0 ? true:false;
 
       }
       

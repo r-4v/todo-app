@@ -56,6 +56,7 @@ const taskList = (function () {
     taskInfo.displayTaskInfoDiv();
     let taskToDisplay = listItemEvent.target.innerText;
     let task = todoList.filter((todo)=> todo.taskName === taskToDisplay)[0];
+    console.log("here");
     console.log(task);
     console.log(todoList);
     taskInfo.populateTaskInfoDiv(task,listItemEvent)

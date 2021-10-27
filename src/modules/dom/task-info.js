@@ -4,6 +4,8 @@ import './task-info.css';
 import { textAreaTrim } from './text-area-trimmer';
 import { todoList } from '../appLogic/create-task-logic';
 import { taskList } from './task-list';
+import { createTask } from './create-task-button';
+import { projectList } from '../appLogic/create-project-logic';
 
 const taskInfo = (function(){
     let taskNameBeforeChange;
@@ -63,13 +65,14 @@ const taskInfo = (function(){
         currentTask.dueDate = dateField.value;
         currentTask.notes = notes.value;
         currentTask.priority = priority.value;
+        currentTask.projectName = selectedProject.value;
         console.log(priority.value);
        
         populateTaskInfoDiv(currentTask);
         console.log(todoList);
      
 }
-function taskInfoaddSelectOptions(projectName){
+/*function taskInfoaddSelectOptions(projectName){
     let selectInput = document.querySelector("#projects-info-div");
     let newProjectOption = document.createElement("option");
     newProjectOption.setAttribute('value',`${projectName}`);
@@ -77,10 +80,10 @@ function taskInfoaddSelectOptions(projectName){
     newProjectOption.setAttribute('value',`${projectName}`);
     selectInput.appendChild(newProjectOption);
     
-}
+}*/
     
     function populateTaskInfoDiv(task){ 
-        taskInfoaddSelectOptions(task.projectName);
+       // taskInfoaddSelectOptions(task.projectName);
        let taskNameTextArea =  taskDetailArea.querySelector("#task-name-info-div");
        taskNameBeforeChange = task.taskName;
        console.log(`taskNameBeforeChange = ${taskNameBeforeChange}`);
@@ -95,11 +98,16 @@ function taskInfoaddSelectOptions(projectName){
         priority.value = task.priority;
 
         let selectedProject =  taskDetailArea.querySelector('#projects-info-div');
+        //selectedProject.innerHTML ="";
+        addProjectsTaskInfo(task);
         selectedProject.value = task.projectName;
+        
+        console.log(` is ${selectedProject.value}`);
+       // createTask.addSelectOptions(project.projectName,'projects-info-div');
+       
+        
         console.log(selectedProject);
         console.log("fired update");
-        
-        
            // taskNameTextArea.addEventListener("change",taskNameChange);
            // dateField.addEventListener("change",dateFieldChange);
             //notes.addEventListener("keydown",notesChange);
@@ -136,6 +144,25 @@ function taskInfoaddSelectOptions(projectName){
             }*/
         
          // manageTaskInfoDiv();
+    }
+    function addProjectsTaskInfo(task){
+        let selectedProject =  taskDetailArea.querySelector('#projects-info-div');
+        selectedProject.value = task.projectName;
+        let optionArray = [];
+        Array.from(selectedProject.querySelectorAll("option")).forEach((option)=>{
+            optionArray.push(option.value);
+        });
+       console.log(optionArray);
+        projectList.map((project)=> {
+            console.log(project.projectName);
+            if(optionArray.indexOf(project.projectName)=== -1){
+            let newProjectOption = document.createElement("option");
+            newProjectOption.setAttribute('value',`${project.projectName}`);
+            newProjectOption.innerText = project.projectName;
+            selectedProject.appendChild(newProjectOption);}
+        })
+        
+        console.log(optionArray);
     }
   
 

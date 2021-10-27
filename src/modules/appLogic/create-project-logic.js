@@ -9,14 +9,24 @@ const createProjectLogic = (function(){
         let projectFormData = new FormData(this);
         let projectName =  projectFormData.get('project-name');
         let project = projectFactory(projectName);
-        projectList.push(project);
-        createTask.addSelectOptions(project.projectName);
-        console.log(project);
-        console.log(projectList);
         this.reset();
-        projectModal.closeProjectOverlay();
+        if(!checkIfProjectExists(projectName)){
+            projectList.push(project);
+            createTask.addSelectOptions(project.projectName,'projects');
+            console.log(project);
+            console.log(projectList);
+            this.reset();
+            projectModal.closeProjectOverlay();
+        }
+       
     }
+    function checkIfProjectExists(projectName){
+        
+        let filteredList =projectList.filter((project)=> project.projectName === projectName);
+        return filteredList.length !== 0 ? true:false;
+
+      }
     
     return {delegateProjectInfo};
 })();
-export {createProjectLogic};
+export {createProjectLogic,projectList};

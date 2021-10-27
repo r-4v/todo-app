@@ -25,11 +25,10 @@ const createTask = (function(){
 
     }
     function addSelectOptions(projectName){
-        let selectInput = document.querySelector("#projects");
+        let selectInput = document.querySelector(`#projects`);
         let newProjectOption = document.createElement("option");
         newProjectOption.setAttribute('value',`${projectName}`);
         newProjectOption.innerText = projectName;
-        newProjectOption.setAttribute('value',`${projectName}`);
         selectInput.appendChild(newProjectOption);
         
     }
