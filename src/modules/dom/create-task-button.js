@@ -19,6 +19,7 @@ const createTask = (function(){
         overlayElement.setAttribute('style','display:block');
         let modal = document.querySelector(".modal");
         modal.setAttribute('style','display:block');
+        document.getElementById("task-name-2").focus();
         let form = document.getElementById("task-form");
         //console.log(form);
         form.addEventListener("submit",createTaskLogic.delegateTaskInfo);

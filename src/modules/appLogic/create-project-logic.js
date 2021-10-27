@@ -1,6 +1,7 @@
 import {projectFactory} from "./project-factory.js";
 import {projectModal} from "../dom/add-project-modal.js";
 import {createTask} from "../dom/create-task-button.js";
+import { addProjectListItem } from "../dom/project-list.js";
 let projectList = [];
 const createProjectLogic = (function(){
     
@@ -12,12 +13,14 @@ const createProjectLogic = (function(){
         this.reset();
         if(!checkIfProjectExists(projectName)){
             projectList.push(project);
+            addProjectListItem(project.projectName);
             createTask.addSelectOptions(project.projectName,'projects');
             console.log(project);
             console.log(projectList);
             this.reset();
             projectModal.closeProjectOverlay();
         }
+
        
     }
     function checkIfProjectExists(projectName){

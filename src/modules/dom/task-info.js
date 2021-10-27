@@ -46,6 +46,9 @@ const taskInfo = (function(){
     border-radius:25px;display:flex;flex-direction:column;
     overflow:scroll;overflow-x:hidden;`);
     }
+    function hideTaskInfoDiv(){
+        taskInfo.taskInfoDiv.setAttribute(`style`,'display:none');
+    }
    
     function handleChange(e){
         let taskNameTextArea =  taskDetailArea.querySelector("#task-name-info-div");
@@ -167,7 +170,7 @@ const taskInfo = (function(){
   
 
 
-    return {taskInfoDiv,displayTaskInfoDiv,populateTaskInfoDiv};
+    return {taskInfoDiv,displayTaskInfoDiv,populateTaskInfoDiv,hideTaskInfoDiv};
 })();
 
 export {taskInfo};

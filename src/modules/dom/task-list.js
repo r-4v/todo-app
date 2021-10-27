@@ -63,6 +63,6 @@ const taskList = (function () {
     
   }
  
-  return { taskListWrapper,taskListDiv ,nameEntryDiv,refreshTaskList};
+  return { taskListWrapper,taskListDiv ,nameEntryDiv,refreshTaskList,updateTaskInfo};
 })();
 export {taskList};
