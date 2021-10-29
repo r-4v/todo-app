@@ -100,8 +100,9 @@
     #notes{
         font-size:12px;
         font-weight: 400;
-        min-height: 180px;
+        min-height: 150px;
     }
+   
 #select-project    select{
         padding:10px;
         margin:20px;

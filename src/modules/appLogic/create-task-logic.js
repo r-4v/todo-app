@@ -2,6 +2,9 @@ import { createTask } from "../dom/create-task-button";
 import { taskList } from "../dom/task-list";
 import { todoFactory } from "./todo-factory";
 let todoList = [];
+function setTodoList(value){
+  todoList = value;
+}
 const createTaskLogic = (function(){
     function delegateTaskInfo(e) {
         e.preventDefault();
@@ -10,6 +13,9 @@ const createTaskLogic = (function(){
         let dueDate = taskFormData.get("due-date");
         let notes = taskFormData.get("notes");
         let projectName = taskFormData.get("project-name");
+        if (!projectName){
+          projectName = "Select Project";
+      }
 
         //let bookExists = checkIfBookExists(bookName);
         /*if (!bookExists) {
@@ -39,4 +45,4 @@ const createTaskLogic = (function(){
       
     return{delegateTaskInfo};
 })();
-export {createTaskLogic,todoList};
+export {createTaskLogic,todoList,setTodoList};

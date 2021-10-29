@@ -70,6 +70,7 @@ select-project-info-div select:focus{
     border:none;
     margin-bottom:30px;
 }
+select:invalid { color: white; }
 #info-div-notes{
     min-height: 180px;
 }

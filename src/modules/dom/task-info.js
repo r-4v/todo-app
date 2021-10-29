@@ -2,7 +2,7 @@
 import taskDetails from './task-info.html';
 import './task-info.css';
 import { textAreaTrim } from './text-area-trimmer';
-import { todoList } from '../appLogic/create-task-logic';
+import { todoList,setTodoList } from '../appLogic/create-task-logic';
 import { taskList } from './task-list';
 import { createTask } from './create-task-button';
 import { projectList } from '../appLogic/create-project-logic';
@@ -49,7 +49,19 @@ const taskInfo = (function(){
     function hideTaskInfoDiv(){
         taskInfo.taskInfoDiv.setAttribute(`style`,'display:none');
     }
-   
+    let deleteBtn = taskDetailArea.querySelector("#delete-task");
+    deleteBtn.addEventListener('click',deleteTask);
+   function deleteTask(){
+       
+    console.log(`todo list after removing task${todoList}`);
+    setTodoList(todoList.filter((todo) => todo.taskName !== taskNameBeforeChange));
+   taskList.refreshTaskList();
+   hideTaskInfoDiv();
+  
+   }
+   function markAsDone(){
+
+   }
     function handleChange(e){
         let taskNameTextArea =  taskDetailArea.querySelector("#task-name-info-div");
         let dateField = taskDetailArea.querySelector('#date-picker');
@@ -69,6 +81,8 @@ const taskInfo = (function(){
         currentTask.notes = notes.value;
         currentTask.priority = priority.value;
         currentTask.projectName = selectedProject.value;
+        console.log(`project name is ${selectedProject.value}`);
+       
         console.log(priority.value);
        
         populateTaskInfoDiv(currentTask);
@@ -155,7 +169,7 @@ const taskInfo = (function(){
         Array.from(selectedProject.querySelectorAll("option")).forEach((option)=>{
             optionArray.push(option.value);
         });
-       console.log(optionArray);
+      // console.log(optionArray);
         projectList.map((project)=> {
             console.log(project.projectName);
             if(optionArray.indexOf(project.projectName)=== -1){
@@ -165,7 +179,7 @@ const taskInfo = (function(){
             selectedProject.appendChild(newProjectOption);}
         })
         
-        console.log(optionArray);
+       // console.log(optionArray);
     }
   
 
