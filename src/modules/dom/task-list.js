@@ -1,5 +1,6 @@
 import { taskInfo } from "./task-info";
-import { todoList } from "../appLogic/create-task-logic";
+import {setTodoList, todoList } from "../appLogic/create-task-logic";
+
 const taskList = (function () {
   let taskListWrapper = document.createElement('div');
   taskListWrapper.setAttribute('style',`margin-top:120px;margin-left:40px;`);
@@ -43,11 +44,35 @@ const taskList = (function () {
     todoList.map((todo)=>{
       //console.log("henlo");
       let taskListItem = document.createElement('div');
+      if(todo.isDone === "yes"){
+        let strikedText = todo.taskName.strike();
+        taskListItem.innerHTML = strikedText;
+      }
+      else{
       taskListItem.innerText = todo.taskName;
-      taskListItem.setAttribute('style',`color:white;font-weight:bold;font-size:18px;margin:20px;cursor:pointer;`);
+      }
+      taskListItem.setAttribute('style',`display:flex;justify-content:space-between;color:white;font-weight:bold;font-size:18px;margin:20px;cursor:pointer;width:100%;`);
       taskList.taskListDiv.appendChild(taskListItem);
-      taskListItem.addEventListener('click',updateTaskInfo);
+      if(todo.isDone!=="yes"){
+        taskListItem.addEventListener('click',updateTaskInfo);
+      }
+    
+      if(todo.isDone === "yes"){
+        taskInfo.hideTaskInfoDiv();
+       let taskListItemDelete = document.createElement('button');
+       taskListItemDelete.setAttribute(`style`,`padding:5px;background-color:red;color:white;font-size:10px;font-weight:bold;border-radius:5px;border:none;margin-right:30px;`);
+       taskListItemDelete.innerText = "Delete";
+       taskListItemDelete.addEventListener("click",deleteDoneTask);
+       taskListItem.appendChild(taskListItemDelete);
+       taskInfo.hideTaskInfoDiv();
+      }
     })
+  }
+  function deleteDoneTask(e){
+    let taskToDelete = (e.target.parentNode.firstElementChild.innerText);
+    setTodoList(todoList.filter((todo) => todo.taskName !== taskToDelete ));
+   refreshTaskList();
+   taskInfo.hideTaskInfoDiv();
   }
   /*function appendTask(task){
     

@@ -26,6 +26,7 @@ const taskInfo = (function(){
     let markDoneBtn = document.createElement('div');
     markDoneBtn.setAttribute('style',`color:#76ff03;padding:20px;cursor:pointer;`);
     markDoneBtn.innerText = "Mark as Done";
+    markDoneBtn.addEventListener('click',markAsDone);
 
     let taskDetailArea = document.createElement('div');
     taskDetailArea.setAttribute('style','flex-grow:1;border-radius:25px;display:flex;');
@@ -41,6 +42,7 @@ const taskInfo = (function(){
     taskInfoDiv.appendChild(taskHeaderDiv);
     taskInfoDiv.appendChild(taskDetailArea);
     function displayTaskInfoDiv(){
+
         taskInfo.taskInfoDiv.setAttribute('style', `height:720px;width:440px;
     background-color:#161616;margin-top:120px;margin-left:40px;
     border-radius:25px;display:flex;flex-direction:column;
@@ -60,7 +62,10 @@ const taskInfo = (function(){
   
    }
    function markAsDone(){
-
+    let currentTask =  todoList.filter((todo)=> todo.taskName === taskNameBeforeChange)[0];
+    currentTask.isDone = "yes";
+    taskList.refreshTaskList();
+    hideTaskInfoDiv();
    }
     function handleChange(e){
         let taskNameTextArea =  taskDetailArea.querySelector("#task-name-info-div");
@@ -184,7 +189,7 @@ const taskInfo = (function(){
   
 
 
-    return {taskInfoDiv,displayTaskInfoDiv,populateTaskInfoDiv,hideTaskInfoDiv};
+    return {taskInfoDiv,displayTaskInfoDiv,populateTaskInfoDiv,hideTaskInfoDiv,deleteTask};
 })();
 
 export {taskInfo};

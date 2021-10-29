@@ -3,6 +3,9 @@ import {projectModal} from "../dom/add-project-modal.js";
 import {createTask} from "../dom/create-task-button.js";
 import { addProjectListItem } from "../dom/project-list.js";
 let projectList = [];
+function setProjectList(value){
+    projectList =  value;s
+}
 const createProjectLogic = (function(){
     
     function delegateProjectInfo(e){
@@ -32,4 +35,4 @@ const createProjectLogic = (function(){
     
     return {delegateProjectInfo};
 })();
-export {createProjectLogic,projectList};
+export {createProjectLogic,projectList,setProjectList};
