@@ -39,9 +39,11 @@ const createProjectLogic = (function () {
     }
   }
   function checkIfProjectExists(projectName) {
-    let filteredList = projectList.filter(
+    let filteredList;
+    if(projectList){
+    filteredList = projectList.filter(
       (project) => project.projectName === projectName
-    );
+    );}
     return filteredList.length !== 0 ? true : false;
   }
 

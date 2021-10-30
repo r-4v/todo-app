@@ -74,10 +74,11 @@ const taskList = (function () {
   }
   function deleteDoneTask(e){
     let taskToDelete = (e.target.parentNode.firstElementChild.innerText);
+    if(todoList){
     setTodoList(todoList.filter((todo) => todo.taskName !== taskToDelete ));
     startPage.populateStorage();
    refreshTaskList();
-   taskInfo.hideTaskInfoDiv();
+   taskInfo.hideTaskInfoDiv();}
   }
   /*function appendTask(task){
     
@@ -85,12 +86,15 @@ const taskList = (function () {
   function updateTaskInfo(listItemEvent){
     taskInfo.displayTaskInfoDiv();
     let taskToDisplay = listItemEvent.target.innerText;
-    let task = todoList.filter((todo)=> todo.taskName === taskToDisplay)[0];
+
+    let task;
+    if(todoList){
+    task = todoList.filter((todo)=> todo.taskName === taskToDisplay)[0];
     console.log("here");
     console.log(task);
     console.log(todoList);
     taskInfo.populateTaskInfoDiv(task,listItemEvent)
-    
+    }
   }
  
   return { taskListWrapper,taskListDiv ,nameEntryDiv,refreshTaskList,updateTaskInfo};

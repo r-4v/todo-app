@@ -19,12 +19,13 @@ const createTask = (function(){
     createTaskBtn.addEventListener('click',addProjectOptions,{once:true});
     function addProjectOptions(e){
         let tempProj = (JSON.parse(localStorage.getItem('projectList')));
+        if (tempProj){
         for (let i = 0; i < tempProj.length; i++) {
         console.log("ok");
         console.log(tempProj[i].projectName);
         addSelectOptions(tempProj[i].projectName);
         
-      }
+      }}
     }
     //console.log(overlayElement);
     function addTaskfn(e){

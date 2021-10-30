@@ -57,18 +57,24 @@ const taskInfo = (function(){
    function deleteTask(){
        
     console.log(`todo list after removing task${todoList}`);
+    if(todoList){
     setTodoList(todoList.filter((todo) => todo.taskName !== taskNameBeforeChange));
+    }
     startPage.populateStorage();
    taskList.refreshTaskList();
    hideTaskInfoDiv();
   
    }
    function markAsDone(){
-    let currentTask =  todoList.filter((todo)=> todo.taskName === taskNameBeforeChange)[0];
+    let currentTask;
+    if(todoList){ 
+    currentTask=  todoList.filter((todo)=> todo.taskName === taskNameBeforeChange)[0];
     currentTask.isDone = "yes";
     startPage.populateStorage();
     taskList.refreshTaskList();
     hideTaskInfoDiv();
+    }
+    
    }
     function handleChange(e){
         let taskNameTextArea =  taskDetailArea.querySelector("#task-name-info-div");
@@ -78,11 +84,15 @@ const taskInfo = (function(){
         let selectedProject = taskDetailArea.querySelector("#projects-info-div");
         console.log(`Selected project is ${selectedProject.value}`);
         console.log(`taskNamebeforechange in handlechange is ${taskNameBeforeChange}`);
-       let currentTask =  todoList.filter((todo)=> todo.taskName === taskNameBeforeChange)[0];
-        console.log(currentTask);
+       let currentTask;
+       if(todoList){
+       currentTask =  todoList.filter((todo)=> todo.taskName === taskNameBeforeChange)[0];
+       }
+       console.log(currentTask);
          //search for taskListElement with taskNameBeforeChange
+         if(Array.from(taskList.taskListDiv.children)){
         Array.from(taskList.taskListDiv.children).filter((child)=> child.innerText === taskNameBeforeChange)[0].innerText = taskNameTextArea.value;
-         
+         }
         currentTask.taskName = taskNameTextArea.value;
        // taskList.taskListDiv.firstChild.innerText = currentTask.taskName;
         currentTask.dueDate = dateField.value;
