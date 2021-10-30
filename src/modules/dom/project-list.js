@@ -10,7 +10,8 @@ projectsListDiv.setAttribute('style',`overflow:scroll;overflow-x:hidden;`);
 
 function addProjectListItem(projectName){
     projectsListDiv.innerHTML="";
-    projectList.map((project)=>{
+    if(projectList){
+    projectList.forEach((project)=>{
       //console.log("henlo");
       let projectListItem = document.createElement('div');
       let projectListItemWrapper = document.createElement('div');
@@ -25,7 +26,7 @@ function addProjectListItem(projectName){
       projectListItemWrapper.appendChild(projectDeleteButton);
       projectsListDiv.appendChild(projectListItemWrapper);
       projectListItem.addEventListener('click',displayProjectTasks);
-});
+});}
 }
 function deleteProject(e){
   let projectToDelete = e.target.parentNode.firstElementChild.innerText;
