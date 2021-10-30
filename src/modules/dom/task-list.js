@@ -42,6 +42,7 @@ const taskList = (function () {
     console.log("refreshing list");
     console.log(todoList);
     taskList.taskListDiv.innerHTML="";
+    if (todoList){
     todoList.forEach((todo)=>{
       //console.log("henlo");
       let taskListItem = document.createElement('div');
@@ -67,7 +68,7 @@ const taskList = (function () {
        taskListItem.appendChild(taskListItemDelete);
        taskInfo.hideTaskInfoDiv();
       }
-    })
+    })}
     
     console.log("executed");
   }
