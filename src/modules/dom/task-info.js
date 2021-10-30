@@ -5,7 +5,8 @@ import { textAreaTrim } from './text-area-trimmer';
 import { todoList,setTodoList } from '../appLogic/create-task-logic';
 import { taskList } from './task-list';
 import { createTask } from './create-task-button';
-import { projectList } from '../appLogic/create-project-logic';
+import { projectList,setProjectList } from '../appLogic/create-project-logic';
+import { startPage } from './start-page-dom';
 
 const taskInfo = (function(){
     let taskNameBeforeChange;
@@ -87,7 +88,7 @@ const taskInfo = (function(){
         currentTask.priority = priority.value;
         currentTask.projectName = selectedProject.value;
         console.log(`project name is ${selectedProject.value}`);
-       
+        startPage.populateStorage();
         console.log(priority.value);
        
         populateTaskInfoDiv(currentTask);

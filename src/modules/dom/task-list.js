@@ -1,5 +1,6 @@
 import { taskInfo } from "./task-info";
 import {setTodoList, todoList } from "../appLogic/create-task-logic";
+import { startPage } from "./start-page-dom";
 
 const taskList = (function () {
   let taskListWrapper = document.createElement('div');
@@ -67,6 +68,8 @@ const taskList = (function () {
        taskInfo.hideTaskInfoDiv();
       }
     })
+    
+    console.log("executed");
   }
   function deleteDoneTask(e){
     let taskToDelete = (e.target.parentNode.firstElementChild.innerText);

@@ -1,5 +1,5 @@
 function projectFactory(projectName){
-    let projectSpecificTaskList = [];
-    return {projectName,projectSpecificTaskList};
+   
+    return {projectName};
 }
 export {projectFactory};

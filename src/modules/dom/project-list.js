@@ -3,11 +3,10 @@ import { setTodoList, todoList } from "../appLogic/create-task-logic";
 import { taskInfo } from "./task-info";
 import {taskList} from "./task-list.js";
 import "./project-list.css";
+import { startPage } from "./start-page-dom";
 let projectsListDiv = document.createElement('div');
 projectsListDiv.setAttribute('id',"projects-list");
-projectsListDiv.setAttribute('style',`overflow:scroll;overflow-x:hidden;`)
-
-
+projectsListDiv.setAttribute('style',`overflow:scroll;overflow-x:hidden;`);
 
 function addProjectListItem(projectName){
     projectsListDiv.innerHTML="";
@@ -33,6 +32,7 @@ function deleteProject(e){
   //console.log(projectToDelete);
   console.log(projectList);
   setProjectList(projectList.filter((project)=> project.projectName !== projectToDelete));
+  //localStorage.removeItem(`${projectToDelete}`);
   refreshProjectList();
   deleteTasksOfProject(projectToDelete);
   console.log(projectList);
@@ -41,6 +41,7 @@ function deleteProject(e){
 function deleteTasksOfProject(projectName){
   console.log(todoList);
   setTodoList(todoList.filter((todo)=> todo.projectName !== projectName));
+  startPage.populateStorage();
   taskList.refreshTaskList();
   taskInfo.hideTaskInfoDiv();
   console.log(todoList);

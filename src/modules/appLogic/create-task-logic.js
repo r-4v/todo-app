@@ -1,9 +1,13 @@
 import { createTask } from "../dom/create-task-button";
+import { startPage } from "../dom/start-page-dom";
 import { taskList } from "../dom/task-list";
 import { todoFactory } from "./todo-factory";
 let todoList = [];
 function setTodoList(value){
   todoList = value;
+}
+function getTodoList(){
+  return todoList;
 }
 const createTaskLogic = (function(){
     function delegateTaskInfo(e) {
@@ -32,6 +36,7 @@ const createTaskLogic = (function(){
         {this.reset();
         createTask.closeOverlay();
         todoList.push(task);
+        startPage.populateStorage();
         taskList.refreshTaskList();}
         
 
@@ -45,4 +50,4 @@ const createTaskLogic = (function(){
       
     return{delegateTaskInfo};
 })();
-export {createTaskLogic,todoList,setTodoList};
+export {createTaskLogic,todoList,setTodoList,getTodoList};

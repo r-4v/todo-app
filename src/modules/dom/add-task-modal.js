@@ -7,6 +7,7 @@ const taskModal = (function(){
     let selectedDiv = taskModalDiv.getElementsByTagName("textarea");
     textAreaTrim(selectedDiv);
     let overlayElement =taskModalDiv.querySelector(".overlay");
+   
     //console.log(overlayElement)
     return {taskModalDiv,overlayElement};
 })();
