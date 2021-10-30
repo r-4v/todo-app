@@ -58,6 +58,7 @@ const taskInfo = (function(){
        
     console.log(`todo list after removing task${todoList}`);
     setTodoList(todoList.filter((todo) => todo.taskName !== taskNameBeforeChange));
+    startPage.populateStorage();
    taskList.refreshTaskList();
    hideTaskInfoDiv();
   
@@ -65,6 +66,7 @@ const taskInfo = (function(){
    function markAsDone(){
     let currentTask =  todoList.filter((todo)=> todo.taskName === taskNameBeforeChange)[0];
     currentTask.isDone = "yes";
+    startPage.populateStorage();
     taskList.refreshTaskList();
     hideTaskInfoDiv();
    }

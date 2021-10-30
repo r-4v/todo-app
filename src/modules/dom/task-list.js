@@ -74,6 +74,7 @@ const taskList = (function () {
   function deleteDoneTask(e){
     let taskToDelete = (e.target.parentNode.firstElementChild.innerText);
     setTodoList(todoList.filter((todo) => todo.taskName !== taskToDelete ));
+    startPage.populateStorage();
    refreshTaskList();
    taskInfo.hideTaskInfoDiv();
   }
