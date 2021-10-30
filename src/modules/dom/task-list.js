@@ -42,7 +42,7 @@ const taskList = (function () {
     console.log("refreshing list");
     console.log(todoList);
     taskList.taskListDiv.innerHTML="";
-    todoList.map((todo)=>{
+    todoList.forEach((todo)=>{
       //console.log("henlo");
       let taskListItem = document.createElement('div');
       if(todo.isDone === "yes"){
