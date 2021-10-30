@@ -4,7 +4,7 @@ import {createTask} from "../dom/create-task-button.js";
 import { addProjectListItem } from "../dom/project-list.js";
 let projectList = [];
 function setProjectList(value){
-    projectList =  value;s
+    projectList =  value;
 }
 const createProjectLogic = (function(){
     
